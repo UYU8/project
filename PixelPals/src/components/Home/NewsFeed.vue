@@ -1,12 +1,16 @@
 <template>
-    <div class="">
-        <van-tabs v-model:active="active" sticky swipeable animated offset-top="86px">
-            <van-tab v-for="(item,index) in items":key="index" class="bg-gradient-to-b from-white to-gray-200">
-                {{ item.title }}
-            </van-tab>
-        </van-tabs>
-    </div>
+<van-tabs type="line" 
+v-model:active="active" swipeable animated 
+sticky offset-top="70"
+>
+<van-tab v-for="(item, index) in items" :key="index">
+    <template #title>{{ item.title }}</template>
+      
+  </van-tab>
+</van-tabs>
+
 </template>
+
 
 <script setup lang="ts">
 

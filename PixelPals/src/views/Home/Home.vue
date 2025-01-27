@@ -1,7 +1,8 @@
 <template>
-    <header>
+    <header class="sticky top-0 z-50">
         <Header />
     </header>
+    <van-pull-refresh v-model="loading" @refresh="onRefresh" class="h-screen">
     <main>
         <SuggestedPostsCard :items="SuggestedPosts" />
 
@@ -20,8 +21,10 @@
         <HotTopicsContent :items="HotTopics" />
         </div>
     </main>
-    <NewsFeedCard :items="NewsFeeds"/>
-    
+    <section >
+        <NewsFeedCard :items="NewsFeeds" />
+    </section>
+</van-pull-refresh>
 </template>
 
 <script setup lang="ts">
@@ -31,11 +34,19 @@ import HotTopicsContent from '@/components/Home/HotTopics.vue'
 import NewsFeedCard from '@/components/Home/NewsFeed.vue'
 
 // pinia 数据管理 + 组件显式
+import { ref } from "vue";
 import { toRefs } from "vue";
 import { useHomeStore } from "../../stores/homeStore";
 
 const homeStore = useHomeStore();
 const { SuggestedPosts, HotTopics, NewsFeeds } = toRefs(homeStore);
+
+const loading = ref(false);
+const onRefresh = () => {
+      setTimeout(() => {
+        loading.value = false;
+      }, 1000);
+    }; 
 
 </script>
 
