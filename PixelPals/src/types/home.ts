@@ -8,3 +8,10 @@ export type HotTopic = {
 export type NewsFeed = {
     title:string;
 };
+export type NewsFeedList = {
+    id:number;
+    title:string;
+    img:string;
+    time:string;
+    comment:string;
+};

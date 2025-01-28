@@ -1,27 +1,28 @@
 <template>
+  <div>
+    <router-view v-slot="{ Component }">
+      <keep-alive :include="cachedComponents">
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
     <div>
-        <router-view v-slot="{ Component }">
-            <keep-alive :include="cachedComponents">
-                <component :is="Component" />
-            </keep-alive>
-        </router-view>
-        <div>
-            <TabBar></TabBar>
-        </div>
+      <TabBar></TabBar>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import TabBar from '@/components/Home/TabBar.vue';
-import { computed } from 'vue';
-import { useRouter } from 'vue-router';
+import TabBar from "@/components/Home/TabBar.vue";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
 const router = useRouter();
 
-const cachedComponents=computed(()=>{
-    return router.getRoutes().filter(route=>route.meta.cache).map(route=>route.name)
-})
+const cachedComponents = computed(() => {
+  return router
+    .getRoutes()
+    .filter((route) => route.meta.cache)
+    .map((route) => route.name);
+});
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
