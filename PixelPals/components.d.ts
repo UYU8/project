@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    GameCard: typeof import('./src/components/Games/GameCard.vue')['default']
     Header: typeof import('./src/components/Home/Header.vue')['default']
     HotTopics: typeof import('./src/components/Home/HotTopics.vue')['default']
     NewsFeed: typeof import('./src/components/Home/NewsFeed.vue')['default']
@@ -14,13 +15,18 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SuggestedPosts: typeof import('./src/components/Home/SuggestedPosts.vue')['default']
     TabBar: typeof import('./src/components/Home/TabBar.vue')['default']
+    VanBackTop: typeof import('vant/es')['BackTop']
+    VanCell: typeof import('vant/es')['Cell']
     VanDivider: typeof import('vant/es')['Divider']
+    VanField: typeof import('vant/es')['Field']
     VanGrid: typeof import('vant/es')['Grid']
     VanGridItem: typeof import('vant/es')['GridItem']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']
     VanNavBar: typeof import('vant/es')['NavBar']
     VanNoticeBar: typeof import('vant/es')['NoticeBar']
+    VanPicker: typeof import('vant/es')['Picker']
+    VanPopup: typeof import('vant/es')['Popup']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
     VanSearch: typeof import('vant/es')['Search']
     VanSwipe: typeof import('vant/es')['Swipe']
