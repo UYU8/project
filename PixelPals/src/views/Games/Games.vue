@@ -93,14 +93,14 @@
       <div class="flex justify-between items-center px-6 text-sm mb-4">
         <h2 class="title font-bold text-lg">为您推荐</h2>
       </div>
-      <GameCard :items="GameCards" class="mb-12" />
+      <GameCard :items="filteredGameCards" class="mb-12" />
       <van-back-top right="5vw" bottom="8vh" />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs } from "vue";
+import { ref, toRefs, computed } from "vue";
 import { useGameStore } from "../../stores/gameStore";
 import GameCard from "../../components/Games/GameCard.vue";
 
@@ -122,11 +122,17 @@ const columns = [
 const fieldValue = ref(columns[0].text);
 const showPicker = ref(false);
 const pickerValue = ref<number[]>([]);
+const action = ref("1");
 const onConfirm = ({ selectedValues, selectedOptions }) => {
   showPicker.value = false;
   pickerValue.value = selectedValues;
   fieldValue.value = selectedOptions[0].text;
+
+  action.value = selectedOptions[0].value;
 };
+const filteredGameCards = computed(() => {
+  return GameCards.value.filter((card) => card.type === action.value[0]);
+});
 </script>
 
 <style scoped></style>

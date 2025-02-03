@@ -3,6 +3,7 @@ export type TopBarItem ={
     icon:string;
 }
 export type GameCard = {
+    type:string;
     img:string;
     title:string;
     price:number;
