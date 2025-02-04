@@ -123,11 +123,15 @@ const fieldValue = ref(columns[0].text);
 const showPicker = ref(false);
 const pickerValue = ref<number[]>([]);
 const action = ref("1");
-const onConfirm = ({ selectedValues, selectedOptions }) => {
+
+interface PickerResult {
+  selectedValues: number[];
+  selectedOptions: { text: string; value: string }[];
+}
+const onConfirm = ({ selectedValues, selectedOptions }: PickerResult) => {
   showPicker.value = false;
   pickerValue.value = selectedValues;
   fieldValue.value = selectedOptions[0].text;
-
   action.value = selectedOptions[0].value;
 };
 const filteredGameCards = computed(() => {

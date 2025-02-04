@@ -16,6 +16,7 @@ declare module 'vue' {
     SuggestedPosts: typeof import('./src/components/Home/SuggestedPosts.vue')['default']
     TabBar: typeof import('./src/components/Home/TabBar.vue')['default']
     VanBackTop: typeof import('vant/es')['BackTop']
+    VanButton: typeof import('vant/es')['Button']
     VanCell: typeof import('vant/es')['Cell']
     VanDivider: typeof import('vant/es')['Divider']
     VanField: typeof import('vant/es')['Field']
