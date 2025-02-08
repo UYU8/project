@@ -6,6 +6,7 @@
     <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
     <van-tabbar-item icon="apps-o" to="/games">游戏库</van-tabbar-item>
     <van-tabbar-item icon="contact-o" to="/mine">我的</van-tabbar-item>
+    <van-tabbar-item icon="contact-o" to="/assistant">AI</van-tabbar-item>
   </van-tabbar>
 </template>
 
@@ -22,6 +23,8 @@ onMounted(() => {
     active.value = 1;
   } else if (route.fullPath == "/mine") {
     active.value = 2;
+  } else if (route.fullPath == "/assistant") {
+    active.value = 3;
   }
 });
 </script>

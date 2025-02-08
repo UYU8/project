@@ -28,6 +28,15 @@ const rootRoutes :RouteRecordRaw[] = [
             title: '我的',
             cache:true
         }
+    },
+    {
+        path: 'assistant',
+        name:'Assistant',
+        component: () => import('@/views/Assistant/Assistant.vue'),
+        meta: {
+            title: '我的',
+            cache:true
+        }
     }
 ]
 
@@ -46,7 +55,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
 
     document.title = to.meta.title as string;
     next()
