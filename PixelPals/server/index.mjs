@@ -35,7 +35,7 @@ router.get('/', async (ctx) => {
 // 定义 chatai 路由处理 POST 请求
 router.post("/chatai", async (ctx) => {
   // 验证请求体是否为对象并且包含 message 字段
-  const body = ctx.request.body as { message?: string };
+  const body = ctx.request.body;
 
   if (typeof body.message !== 'string') {
     ctx.status = 400;
