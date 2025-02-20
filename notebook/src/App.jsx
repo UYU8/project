@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 // 前后端分离 前端独立的路由功能
 import {
   HashRouter as Router, 
@@ -7,11 +7,20 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import routes from './router'
+import routes from '@/router'
 import { ConfigProvider, Button } from 'zarm';
 // import 'zarm/dist/zarm.css'; // vite-plugin-style-import 自动引入css
+import { getUserInfo } from 'utils';
+import NavBar from '@/component/NavBar'
 
 export default function App() {
+  useEffect(() => {
+    // 页面加载时，判断是否登录
+    ((async () => {
+      const res = await getUserInfo();
+    })()) 
+    
+  }, [])
   return (
     <ConfigProvider primaryColor='#007fff'>
       <Router>
@@ -20,6 +29,7 @@ export default function App() {
           </Routes>
           <Button theme="primary">Hello World!</Button>
       </Router>
+      <NavBar showNav={true} />
     </ConfigProvider>
   )
 }
