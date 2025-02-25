@@ -26,7 +26,7 @@ const rootRoutes :RouteRecordRaw[] = [
         component: () => import('@/views/My/Mine.vue'),
         meta: {
             title: '我的',
-            cache:true
+            cache:false
         }
     },
     {
@@ -34,7 +34,7 @@ const rootRoutes :RouteRecordRaw[] = [
         name:'Assistant',
         component: () => import('@/views/Assistant/Assistant.vue'),
         meta: {
-            title: '我的',
+            title: 'AI助手',
             cache:true
         }
     }
@@ -47,6 +47,11 @@ const routes :RouteRecordRaw[] = [
         component: () => import('@/views/KeepAlive.vue'),
         redirect: '/home',
         children:rootRoutes
+    },
+    {
+        path:'/login',
+        name:'login',
+        component:() => import('@/views/Login/Login.vue')
     }
 ]
 

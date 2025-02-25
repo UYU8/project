@@ -5,6 +5,7 @@
         <component :is="Component" />
       </keep-alive>
     </router-view>
+    <!-- 底部导航栏 -->
     <div class="footer h-12">
       <TabBar class="fixed bottom-0"></TabBar>
     </div>
@@ -17,6 +18,7 @@ import { computed } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 
+// 缓存组件
 const cachedComponents = computed(() => {
   return router
     .getRoutes()

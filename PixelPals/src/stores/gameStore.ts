@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+// 关键数据要限制类型
 import { ref } from "vue";
 
 import type {

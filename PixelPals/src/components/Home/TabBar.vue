@@ -3,15 +3,14 @@
     v-model="active"
     class="shadow-black shadow-2xl opacity-90 backdrop-blur-sm bg-white/30"
   >
+    <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
+    <van-tabbar-item icon="apps-o" to="/games">游戏库</van-tabbar-item>
+    <van-tabbar-item icon="contact-o" to="/mine">我的</van-tabbar-item>
     <van-tabbar-item to="/assistant">
       <div class="tabbar-item flex-col justify-center items-center">
         <i class="iconfont icon-AIzhinengshiyanshi"></i>
       </div>
     </van-tabbar-item>
-    <van-tabbar-item icon="home-o" to="/home">首页</van-tabbar-item>
-    <van-tabbar-item icon="apps-o" to="/games">游戏库</van-tabbar-item>
-    <van-tabbar-item icon="contact-o" to="/mine">我的</van-tabbar-item>
-    <!-- <van-tabbar-item icon="contact-o" to="/assistant">AI</van-tabbar-item> -->
   </van-tabbar>
 </template>
 

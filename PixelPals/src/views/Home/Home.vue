@@ -1,9 +1,11 @@
 <template>
+  <!-- 首页 -->
   <header class="sticky top-0 z-50">
     <Header />
   </header>
   <van-pull-refresh v-model="loading" @refresh="onRefresh">
     <main>
+      <!-- 轮播图 -->
       <SuggestedPostsCard :items="SuggestedPosts" />
 
       <div class="p-2.5 flex items-end">
@@ -18,10 +20,12 @@
       </div>
 
       <div class="p-2.5">
+        <!-- 热门话题 -->
         <HotTopicsContent :items="HotTopics" />
       </div>
     </main>
     <section>
+      <!-- 动态资讯 -->
       <NewsFeedCard :items="NewsFeeds" />
     </section>
   </van-pull-refresh>
@@ -42,6 +46,8 @@ const homeStore = useHomeStore();
 const { SuggestedPosts, HotTopics, NewsFeeds } = toRefs(homeStore);
 
 const loading = ref(false);
+
+// 下拉刷新
 const onRefresh = () => {
   setTimeout(() => {
     loading.value = false;

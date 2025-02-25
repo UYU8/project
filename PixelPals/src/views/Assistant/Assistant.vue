@@ -156,6 +156,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* 在此处添加样式 */
-</style>
+<style scoped></style>

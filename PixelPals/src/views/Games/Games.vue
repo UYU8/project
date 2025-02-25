@@ -1,4 +1,5 @@
 <template>
+  <!-- 页面头部 -->
   <header>
     <div class="flex justify-between items-center">
       <div @click="showPicker = true">
@@ -10,6 +11,7 @@
         <van-icon name="cart-o" dot size="1.5rem" class="right-element mr-2" />
       </nav>
     </div>
+    <!-- 游戏选择器 -->
     <van-popup
       v-model:show="showPicker"
       destroy-on-close
@@ -24,6 +26,7 @@
       />
     </van-popup>
   </header>
+  <!-- 页面主体 -->
   <main>
     <header
       class="min-h-18 rounded-2xl p-2 shadow-md mx-4 my-4 border bg-white bg-opacity-80"
@@ -42,6 +45,7 @@
           </div>
         </div>
       </section>
+      <!-- 滑动区域 -->
       <section class="flex border-3 border-black">
         <swiper
           class="swiper"
@@ -110,6 +114,7 @@ import SwiperCore from "swiper";
 import { Pagination } from "swiper/modules";
 SwiperCore.use([Pagination]);
 
+// 定义 Swiper 模块
 const modules = [Pagination];
 const gameStore = useGameStore();
 const { topBarItems, GameCards, menuFirstBarState, menuSecondBarState } =
@@ -128,12 +133,16 @@ interface PickerResult {
   selectedValues: number[];
   selectedOptions: { text: string; value: string }[];
 }
+
+// 选择器事件处理函数
 const onConfirm = ({ selectedValues, selectedOptions }: PickerResult) => {
   showPicker.value = false;
   pickerValue.value = selectedValues;
   fieldValue.value = selectedOptions[0].text;
   action.value = selectedOptions[0].value;
 };
+
+// 筛选游戏卡片
 const filteredGameCards = computed(() => {
   return GameCards.value.filter((card) => card.type === action.value[0]);
 });

@@ -18,7 +18,7 @@
 <script setup lang="ts">
 import type { SuggestedPost } from "../../types/home.ts";
 
-//接口定义类型约束
+// 接口定义类型约束
 interface Props {
   items: SuggestedPost[];
 }

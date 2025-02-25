@@ -2,6 +2,7 @@
   <div class="container px-6 h-full">
     <wc-waterfall gap="10" cols="2">
       <div v-for="item in items" :key="item.title" class="card rounded">
+        <!-- 使用 v-lazy 指令懒加载游戏图片 -->
         <img v-lazy="item.img" class="w-full rounded" />
         <div class="font-bold antialiased font-sans text-sm">
           {{ item.title }}
